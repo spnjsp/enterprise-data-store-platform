@@ -1,0 +1,35 @@
+{
+  "app_name": "enterprise-data-store-platform",
+  "version": "1.0.0",
+  "debug": false,
+  "port": 5000,
+  "log_level": "INFO",
+  "log_file": "logs/app.log",
+  "database": {
+    "engine": "postgresql",
+    "host": "localhost",
+    "port": 5432,
+    "name": "data_platform",
+    "user": "platform_user",
+    "ssl": true
+  },
+  "etl": {
+    "batch_size": 10000,
+    "max_retries": 3,
+    "timeout_seconds": 3600
+  },
+  "metrics": {
+    "export_interval": 60,
+    "retention_days": 30
+  },
+  "cache": {
+    "enabled": true,
+    "ttl_seconds": 3600,
+    "directory": "data/cache"
+  },
+  "security": {
+    "api_key_required": true,
+    "cors_origins": ["http://localhost:3000"],
+    "rate_limit": 100
+  }
+}
